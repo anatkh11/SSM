@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+  	<commentGenerator>
+  		<property name="suppressAllComments" value="true" />
+	</commentGenerator>
+  
+  
+  
+  	<!-- 配置逆向工程需要连接的库 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://127.0.0.1:3306/mybatiscrud43b"
+        userId="root"
+        password="">
+    </jdbcConnection>
+	<!-- 配置Java类型识别器，没有特殊要求的话，可以不要，可以不改 -->
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+	<!-- 配置生成Java模型层（JavaBean）的生成策略 -->
+    <javaModelGenerator targetPackage="com.haina.ssm.bean" targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+	<!-- 配置DAO接口对应的映射文件(Mapper.xml)的生成策略 -->
+    <sqlMapGenerator targetPackage="mappers"  targetProject=".\src\main\resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+	<!-- 配置DAO层的生成策略 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.haina.ssm.dao"  targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+	<!-- 指定按照数据库中那些表进行生成 -->
+    <table  tableName="tb_employees" domainObjectName="Employee" >
+    </table>
+    <table  tableName="tb_dept" domainObjectName="Department" >
+    </table>
+
+  </context>
+</generatorConfiguration>
+
+
+
+
+
+
+
